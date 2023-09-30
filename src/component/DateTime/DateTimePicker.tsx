@@ -5,7 +5,7 @@ import { generateMessage } from "./HelperFn";
 import { createChatBotMessage } from "react-chatbot-kit";
 import { useDispatch } from "react-redux";
 import { setAppointment } from "../../configs/slices/enrollmentSlice"; 
-import { store } from "../../configs/store";
+
 const DateTimePicker: React.FC = (props) => {
   const today = new Date();
   const dispatch = useDispatch()
@@ -37,15 +37,21 @@ const DateTimePicker: React.FC = (props) => {
         dispatch(setAppointment(time));
         updateMessages(message);
       }
+      
+// @ts-ignore
       const message2 = createChatBotMessage(`Enter your Name`);
       updateMessages(message2);
+      
+// @ts-ignore
       document.getElementsByClassName("react-chatbot-kit-chat-input-form")[0].style.display="flex";
     
     },
     [selectedDate]
   );
-
+// @ts-ignore
   const updateMessages = (message) => {
+    
+// @ts-ignore
     props.setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],

@@ -31,6 +31,7 @@ const enrollmentSlice = createSlice({
       state.age = action.payload;
     },
     setChatMessages: (state, action) => {
+      // @ts-ignore
       state.chatMessages = action.payload;
     },
   },

@@ -17,11 +17,13 @@ const config = {
   widgets: [
     {
       widgetName: "gotItCta",
+      // @ts-ignore
       widgetFunc: (props) => <GotItButton {...props} />,
       delay: 2000,
     },
     {
       widgetName: "dateTime",
+      // @ts-ignore
       widgetFunc: (props) => <DateTimePicker {...props} />,
     },
   ],

@@ -19,7 +19,7 @@ const App = () => {
   const dispatch = useDispatch();
   const step = useSelector((state: RootState) => state.enrollment.step);
 
-  const saveMessages = (messages: unknown[], HTMLString: string) => {
+  const saveMessages = (messages: unknown[]) => {
     dispatch(setChatMessages(messages));
     localStorage.setItem("chat_messages", JSON.stringify(messages));
   };
@@ -37,13 +37,12 @@ const App = () => {
     <div className="p-4 grid h-screen place-items-center">
       {step === 1 && <Page1 />}
       {step === 2 && (
-        <Chatbot
-          config={config}
+        // @ts-ignore
+        <Chatbot config={config} messageHistory={loadMessages}
           messageParser={MessageParser}
           className="classNamecheck"
           actionProvider={ActionProvider}
           saveMessages={saveMessages}
-          messageHistory={loadMessages}
         />
       )}
       {step === 3 && <Page3 />}

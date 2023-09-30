@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import { store } from "../store";
+import React from "react";
 
+// @ts-ignore
 const MessageParser = ({ children, actions }) => {
-  
+
+// @ts-ignore  
   const parse = (message) => {
 
     if (isNaN(message)) actions.handleAge(message);
