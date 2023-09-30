@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import Page1 from "./component/pages/PageOne";
-// import Chatbot from "./component/ChatBot/ChatBot";
 import Page3 from "./component/pages/PageThree";
 import { setChatMessages } from "./configs/slices/enrollmentSlice";
 import config from "./configs/chat-configs/configs.tsx";
@@ -37,8 +36,9 @@ const App = () => {
     <div className="p-4 grid h-screen place-items-center">
       {step === 1 && <Page1 />}
       {step === 2 && (
-        // @ts-ignore
-        <Chatbot config={config} messageHistory={loadMessages}
+        <Chatbot
+          config={config}
+          messageHistory={loadMessages}
           messageParser={MessageParser}
           className="classNamecheck"
           actionProvider={ActionProvider}

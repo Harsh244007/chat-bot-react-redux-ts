@@ -4,11 +4,11 @@ import TimeSlotGroup from "./TimeSlotGroup";
 import { generateMessage } from "./HelperFn";
 import { createChatBotMessage } from "react-chatbot-kit";
 import { useDispatch } from "react-redux";
-import { setAppointment } from "../../configs/slices/enrollmentSlice"; 
+import { setAppointment } from "../../configs/slices/enrollmentSlice";
 
 const DateTimePicker: React.FC = (props) => {
   const today = new Date();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [selectedDate, setSelectedDate] = useState<Date | null>(today);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -37,21 +37,14 @@ const DateTimePicker: React.FC = (props) => {
         dispatch(setAppointment(time));
         updateMessages(message);
       }
-      
-// @ts-ignore
+
       const message2 = createChatBotMessage(`Enter your Name`);
       updateMessages(message2);
-      
-// @ts-ignore
-      document.getElementsByClassName("react-chatbot-kit-chat-input-form")[0].style.display="flex";
-    
+      document.getElementsByClassName("react-chatbot-kit-chat-input-form")[0].style.display = "flex";
     },
     [selectedDate]
   );
-// @ts-ignore
   const updateMessages = (message) => {
-    
-// @ts-ignore
     props.setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -62,32 +55,12 @@ const DateTimePicker: React.FC = (props) => {
     <div className="container w-full overflow-hidden mx-auto p-4">
       <div className="flex space-x-4 overflow-x-auto pb-4 pr-4">
         {next7Days.map((date, index) => (
-          <DateItem
-            key={index}
-            date={date}
-            selectedDate={selectedDate}
-            handleDateClick={handleDateClick}
-          />
+          <DateItem key={index} date={date} selectedDate={selectedDate} handleDateClick={handleDateClick} />
         ))}
       </div>
-      <TimeSlotGroup
-        timeslots={["9-10", "10-11", "11-12"]}
-        selectedTime={selectedTime}
-        handleTimeClick={handleTimeClick}
-        title="Morning"
-      />
-      <TimeSlotGroup
-        timeslots={["13-14", "14-15", "15-16"]}
-        selectedTime={selectedTime}
-        handleTimeClick={handleTimeClick}
-        title="Afternoon"
-      />
-      <TimeSlotGroup
-        timeslots={["16-17", "17-18", "18-19"]}
-        selectedTime={selectedTime}
-        handleTimeClick={handleTimeClick}
-        title="Evening"
-      />
+      <TimeSlotGroup timeslots={["9-10", "10-11", "11-12"]} selectedTime={selectedTime} handleTimeClick={handleTimeClick} title="Morning" />
+      <TimeSlotGroup timeslots={["13-14", "14-15", "15-16"]} selectedTime={selectedTime} handleTimeClick={handleTimeClick} title="Afternoon" />
+      <TimeSlotGroup timeslots={["16-17", "17-18", "18-19"]} selectedTime={selectedTime} handleTimeClick={handleTimeClick} title="Evening" />
     </div>
   );
 };
