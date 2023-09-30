@@ -1,5 +1,5 @@
 import { createChatBotMessage } from "react-chatbot-kit";
-import GotItButton from "./Gotit";
+import GotItButton from "../../component/Helpers/Gotit";
 import DateTimePicker from "../../component/DateTime/DateTimePicker";
 
 const intialOption = {

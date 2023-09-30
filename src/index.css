@@ -22,7 +22,8 @@
 .react-chatbot-kit-chat-message-container{
   width: 100%;
   overflow: auto;
-  height: 90%; 
+  height: 85%;
+  padding-bottom: 20px; 
 }
 .react-chatbot-kit-chat-inner-container{
   width: 100%;
@@ -45,4 +46,14 @@
 }
 .bg-blue-500{
   background-color: #376B7E;
+}
+@media (max-width:840px){
+  .react-chatbot-kit-chat-container{
+    width: 400px;
+   }
+}
+@media (max-width:420px){
+  .react-chatbot-kit-chat-container{
+    width: 300px;
+   }
 }
