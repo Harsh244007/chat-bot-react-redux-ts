@@ -16,7 +16,6 @@ const enrollmentSlice = createSlice({
     appointment: "",
     name: "",
     age: "",
-    
   },
   reducers: {
     setStep: (state, action) => {
@@ -32,14 +31,14 @@ const enrollmentSlice = createSlice({
       state.age = action.payload;
     },
     setChatMessages: (state, action) => {
-        state.chatMessages = action.payload;
-      },
+      state.chatMessages = action.payload;
+    },
   },
 });
 
-export const { setChatMessages,setStep,  setAppointment, setName, setAge } =
+export const { setChatMessages, setStep, setAppointment, setName, setAge } =
   enrollmentSlice.actions;
 
-export const selectEnrollment = (state:RootState) => state.enrollment;
+export const selectEnrollment = (state: RootState) => state.enrollment;
 
 export default enrollmentSlice.reducer;
